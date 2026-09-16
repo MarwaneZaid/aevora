@@ -22,7 +22,7 @@ export function HomePage() {
     <div className="min-h-screen bg-cream text-burgundy">
       <Loader />
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
         <Marquee />
         <About />

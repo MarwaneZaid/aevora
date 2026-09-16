@@ -46,7 +46,7 @@ export function Workshops() {
         </div>
 
         <Reveal>
-          <div className="mt-16 border border-burgundy/15 bg-gradient-to-br from-cream-warm to-cream p-6 md:p-10">
+          <div className="panel mt-16 border-burgundy/15 bg-gradient-to-br from-cream-warm to-cream p-6 md:p-10">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="eyebrow mb-3">Next session</p>

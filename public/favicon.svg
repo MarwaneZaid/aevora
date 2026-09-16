@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <circle cx="32" cy="32" r="30" stroke="#330a10" stroke-width="1.5"/>
-  <text x="32" y="37" text-anchor="middle" fill="#330a10" font-family="Georgia, serif" font-size="11" letter-spacing="1">Aevora</text>
+  <rect width="64" height="64" fill="#faf7ef"/>
+  <circle cx="32" cy="32" r="28" stroke="#330a10" stroke-width="1.25"/>
+  <text x="32" y="38" text-anchor="middle" fill="#330a10" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="2">97</text>
 </svg>

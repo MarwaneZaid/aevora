@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react'
+import { CheckCircle2 } from 'lucide-react'
 import { contact, payment } from '../data/catalog'
 import { useWorkshop } from '../lib/content'
 import { isSupabaseConfigured, supabase } from '../lib/supabase'
@@ -81,12 +82,12 @@ export function Book({ composition }: Props) {
 
   return (
     <section id="book" className="bg-cream-warm py-24 md:py-32">
-      <div className="mx-auto grid max-w-[1400px] gap-12 px-5 md:grid-cols-12 md:gap-10 md:px-8 lg:px-10">
+      <div className="container-site grid gap-12 md:grid-cols-12 md:gap-10">
         <div className="md:col-span-7">
           <Reveal>
             <p className="eyebrow mb-4">Reserve</p>
             <h2 className="display text-4xl md:text-5xl">Book your workshop seat</h2>
-            <p className="mt-4 max-w-xl text-muted">
+            <p className="mt-4 max-w-xl lede">
               Complete the form below to reserve your place. Your booking is
               confirmed once payment has been completed and you receive a
               confirmation message.
@@ -94,7 +95,7 @@ export function Book({ composition }: Props) {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="mt-8 border border-burgundy/10 bg-cream p-5 md:p-6">
+            <div className="panel mt-8 p-5 md:p-6">
               <p className="eyebrow mb-2">Session details</p>
               <p className="font-display text-2xl text-burgundy">{workshop.title}</p>
               <p className="mt-2 text-sm text-muted">
@@ -110,6 +111,21 @@ export function Book({ composition }: Props) {
               )}
             </div>
           </Reveal>
+
+          {sent && (
+            <Reveal>
+              <div className="mt-6 flex gap-3 border border-burgundy/15 bg-cream p-4 text-sm text-burgundy">
+                <CheckCircle2 className="mt-0.5 shrink-0" size={18} />
+                <div>
+                  <p className="font-medium">Booking started</p>
+                  <p className="mt-1 text-muted">
+                    WhatsApp opened with your details. Complete payment below,
+                    then send your receipt to confirm your seat.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          )}
 
           <Reveal delay={0.12}>
             <form onSubmit={onSubmit} className="mt-8 space-y-5">
@@ -192,7 +208,7 @@ export function Book({ composition }: Props) {
 
         <div className="md:col-span-5">
           <Reveal>
-            <div className="border border-burgundy/10 bg-cream p-6 shadow-lift md:sticky md:top-28">
+            <div className="panel p-6 shadow-lift md:sticky md:top-28">
               <p className="eyebrow mb-3">Payment methods</p>
               <h3 className="display text-3xl">How to pay</h3>
 
@@ -202,10 +218,10 @@ export function Book({ composition }: Props) {
                   <p className="mt-2">
                     Transfer the total amount using the following bank details:
                   </p>
-                  <ul className="mt-3 space-y-1 text-burgundy">
+                  <ul className="mt-3 space-y-1.5 text-burgundy">
                     <li>Account holder: {payment.bank.holder}</li>
                     <li>Bank: {payment.bank.bank}</li>
-                    <li>RIB: {payment.bank.rib}</li>
+                    <li className="font-mono text-[13px]">RIB: {payment.bank.rib}</li>
                     <li>Amount: {total} MAD</li>
                   </ul>
                 </div>
@@ -213,10 +229,9 @@ export function Book({ composition }: Props) {
                 <div className="border-t border-line pt-6">
                   <p className="font-medium text-burgundy">Option 2 — Wafacash or Cash Plus</p>
                   <p className="mt-2">
-                    You can also send the payment through your nearest Wafacash or
-                    Cash Plus agency using the following details:
+                    Send the payment through your nearest agency using:
                   </p>
-                  <ul className="mt-3 space-y-1 text-burgundy">
+                  <ul className="mt-3 space-y-1.5 text-burgundy">
                     <li>Recipient’s full name: {payment.cash.recipient}</li>
                     <li>Phone number: {payment.cash.phone}</li>
                     <li>Amount: {total} MAD</li>
