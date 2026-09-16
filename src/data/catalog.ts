@@ -1,26 +1,33 @@
-const cdn = (path: string, format = 2500) =>
-  `https://images.squarespace-cdn.com/content/v1/6a15d99c2b416b60c8fa6ac2/${path}?format=${format}w`
-
 export const images = {
-  hero: cdn('8122871c-dfbb-497c-9aed-e7ca9a0c4e24/IMG_5472.png'),
-  craftHands: cdn('ced80e87-63c9-4859-bb8b-4e071c6ef00a/IMG_5233.jpg'),
-  workshopTable: cdn('b78dc00c-044b-484c-95e0-58dffe1b2cf9/IMG_4205+2.jpg'),
-  journalGrid: cdn('c101a399-0fdb-46a4-a62e-20f5a87ee6ab/2CED2987-B7FC-474F-9638-228532332904.jpg'),
-  journalRow: cdn('11a1bedd-5e96-4162-b211-2a6537ebb123/2CED2987-B7FC-474F-9638-228532332904.jpg'),
-  heldJournal: cdn('98c135db-26c2-4f76-84fe-e02b9a46abbe/IMG_4210+2.jpg'),
-  charms: cdn('a887841e-7c64-4e33-9297-2d9e8fe7ad3c/IMG_4068.jpg'),
-  stack: cdn('43bb856f-3f89-4252-abb3-41c7f672be9d/IMG_4822.jpg'),
-  pair: cdn('93c2c82b-1095-4d52-8e3c-46cb5bd61ee3/IMG_4208+2.jpg'),
-  cylinder: cdn('5e961f9c-9e96-4243-94d9-7cbc33359323/IMG_4877.png'),
+  hero: '/images/journals-stack.jpg',
+  craftHands: '/images/workshop-hands.jpg',
+  workshopTable: '/images/workshop-table.jpg',
+  heldJournal: '/images/journal-burgundy-held.jpg',
+  giftBox: '/images/gift-box.jpg',
+  stack: '/images/journals-stack.jpg',
+  pair: '/images/journals-pink-brown.jpg',
+  trio: '/images/journals-trio.jpg',
+  collection: '/images/journals-collection.jpg',
+  laceBow: '/images/journal-lace-bow.jpg',
+  tray: '/images/journal-tray.jpg',
+  brownSun: '/images/journal-brown-sun.jpg',
+  crocHeld: '/images/journal-croc-held.jpg',
+  swatches: '/images/leather-swatches.jpg',
 }
 
 export const galleryPics = [
-  images.heldJournal,
-  images.craftHands,
-  images.journalRow,
+  images.stack,
+  images.trio,
   images.pair,
-  images.charms,
-  images.workshopTable,
+  images.heldJournal,
+  images.brownSun,
+  images.crocHeld,
+  images.tray,
+  images.laceBow,
+  images.collection,
+  images.giftBox,
+  images.swatches,
+  images.craftHands,
 ]
 
 export const values = [

@@ -31,7 +31,7 @@ export function Workshops() {
           <Reveal delay={0.1}>
             <img
               src={images.workshopTable}
-              alt="Workshop table with leather and tools"
+              alt="Aevora leather journal workshop table setup"
               className="aspect-[4/5] w-full object-cover shadow-soft"
             />
           </Reveal>

@@ -21,8 +21,8 @@ export function About() {
         </Reveal>
         <Reveal delay={0.1}>
           <img
-            src={images.heldJournal}
-            alt="Handmade leather journal with charms"
+            src={images.giftBox}
+            alt="Aevora 97 journal gift box — Built to Last"
             className="aspect-[4/5] w-full object-cover shadow-soft"
           />
         </Reveal>

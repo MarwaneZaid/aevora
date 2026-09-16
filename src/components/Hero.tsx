@@ -19,9 +19,9 @@ export function Hero() {
     >
       <motion.div style={{ y }} className="absolute inset-0">
         <img
-          src={images.workshopTable}
-          alt="Leather journal workshop table"
-          className="h-full w-full object-cover"
+          src={images.hero}
+          alt="Stack of handmade Aevora leather journals"
+          className="h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/88 to-cream/35" />
         <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-cream/40" />

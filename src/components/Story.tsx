@@ -8,7 +8,7 @@ export function Story() {
         <Reveal className="md:col-span-4">
           <img
             src={images.craftHands}
-            alt="Hands crafting a leather journal"
+            alt="Hands crafting leather journals at an Aevora workshop"
             className="aspect-square w-full object-cover shadow-lift"
           />
         </Reveal>

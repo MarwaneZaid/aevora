@@ -20,11 +20,12 @@ export function Create() {
 
         <div className="mt-12 grid gap-3 sm:grid-cols-2 md:grid-cols-3 md:gap-4">
           {galleryPics.map((src, i) => (
-            <Reveal key={src} delay={i * 0.05}>
+            <Reveal key={src} delay={Math.min(i * 0.04, 0.24)}>
               <img
                 src={src}
-                alt={`Aevora journal detail ${i + 1}`}
+                alt={`Aevora handmade journal ${i + 1}`}
                 className="aspect-[4/5] w-full object-cover"
+                loading="lazy"
               />
             </Reveal>
           ))}
