@@ -16,6 +16,9 @@ export function Workshops() {
               journal from beginning to end and share the experience with a
               community of book lovers, journaling enthusiasts and creative minds.
             </p>
+            <p className="mt-8 font-display text-2xl text-burgundy md:text-3xl">
+              More than making a journal
+            </p>
             <p className="mt-4 text-base leading-relaxed text-muted md:text-lg">
               This isn’t only about crafting a journal. It’s a cozy gathering
               designed for people who enjoy creating, reading, journaling and
@@ -54,7 +57,7 @@ export function Workshops() {
               </div>
               <div className="flex flex-wrap gap-3">
                 <a href="#book" className="btn-primary">
-                  Book your workshop seat
+                  Book Your Workshop Seat
                 </a>
                 <a href="#compose" className="btn-ghost">
                   Preview your journal
@@ -88,10 +91,10 @@ export function Workshops() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a href="#book" className="btn-primary">
-                Book your workshop seat
+                Book Your Workshop Seat
               </a>
               <a href="#contact" className="btn-ghost">
-                Contact us
+                Contact Us
               </a>
             </div>
           </div>

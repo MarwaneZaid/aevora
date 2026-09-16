@@ -41,8 +41,8 @@ export function Create() {
             availability. Custom orders are also available for anyone looking for
             a particular colour, detail or design.
           </p>
-          <p className="mt-3 text-sm font-medium text-burgundy">
-            Personalized and custom-made orders require advance payment.
+          <p className="mt-3 text-sm font-medium italic text-burgundy">
+            *Personalized and custom-made orders require advance payment.*
           </p>
         </Reveal>
       </div>

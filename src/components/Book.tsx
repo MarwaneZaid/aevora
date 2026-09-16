@@ -1,9 +1,17 @@
 import { FormEvent, useState } from 'react'
-import { payment, workshopInfo } from '../data/catalog'
+import { contact, payment, workshopInfo } from '../data/catalog'
 import { Reveal } from './Reveal'
 
 type Props = {
   composition: string
+}
+
+function openWhatsApp(message: string) {
+  window.open(
+    `https://wa.me/${contact.whatsappE164}?text=${encodeURIComponent(message)}`,
+    '_blank',
+    'noopener,noreferrer',
+  )
 }
 
 export function Book({ composition }: Props) {
@@ -15,6 +23,8 @@ export function Book({ composition }: Props) {
   const [instagram, setInstagram] = useState('')
   const [requests, setRequests] = useState('')
   const [sent, setSent] = useState(false)
+
+  const total = Number(workshopInfo.price) * Number(seats)
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault()
@@ -28,26 +38,24 @@ export function Book({ composition }: Props) {
       instagram ? `Instagram: ${instagram}` : '',
       requests ? `Special requests: ${requests}` : '',
       composition ? `Journal preview: ${composition}` : '',
-      `Session: ${workshopInfo.date} · ${workshopInfo.price} MAD`,
+      `Session: ${workshopInfo.date} · ${workshopInfo.price} MAD × ${seats} = ${total} MAD`,
     ]
       .filter(Boolean)
       .join('\n')
 
-    window.open(
-      `https://wa.me/?text=${encodeURIComponent(lines)}`,
-      '_blank',
-      'noopener,noreferrer',
-    )
+    openWhatsApp(lines)
     setSent(true)
   }
 
   const sendReceipt = () => {
-    const msg = `Aevora 97 — Payment receipt\nName: ${name || '[your name]'}\nSession: ${workshopInfo.date}\nAmount: ${workshopInfo.price} MAD × ${seats} seat(s)`
-    window.open(
-      `https://wa.me/?text=${encodeURIComponent(msg)}`,
-      '_blank',
-      'noopener,noreferrer',
-    )
+    const msg = [
+      'Aevora 97 — Payment receipt',
+      `Name: ${name || '[your name]'}`,
+      `Session: ${workshopInfo.date}`,
+      `Amount: ${total} MAD`,
+      'I am sending my payment receipt.',
+    ].join('\n')
+    openWhatsApp(msg)
   }
 
   return (
@@ -101,7 +109,7 @@ export function Book({ composition }: Props) {
                   />
                 </label>
                 <label className="block">
-                  <span className="mb-2 block text-sm text-burgundy">Phone / WhatsApp</span>
+                  <span className="mb-2 block text-sm text-burgundy">Phone number / WhatsApp</span>
                   <input
                     required
                     value={phone}
@@ -164,49 +172,45 @@ export function Book({ composition }: Props) {
         <div className="md:col-span-5">
           <Reveal>
             <div className="border border-burgundy/10 bg-cream p-6 shadow-lift md:sticky md:top-28">
-              <p className="eyebrow mb-3">Payment</p>
+              <p className="eyebrow mb-3">Payment methods</p>
               <h3 className="display text-3xl">How to pay</h3>
 
               <div className="mt-6 space-y-6 text-sm text-muted">
                 <div>
                   <p className="font-medium text-burgundy">Option 1 — Bank transfer</p>
-                  <p className="mt-2">Transfer the total amount using the bank details below.</p>
+                  <p className="mt-2">
+                    Transfer the total amount using the following bank details:
+                  </p>
                   <ul className="mt-3 space-y-1 text-burgundy">
                     <li>Account holder: {payment.bank.holder}</li>
                     <li>Bank: {payment.bank.bank}</li>
                     <li>RIB: {payment.bank.rib}</li>
-                    <li>
-                      Amount: {workshopInfo.price} MAD × {seats}
-                    </li>
+                    <li>Amount: {total} MAD</li>
                   </ul>
                 </div>
 
                 <div className="border-t border-line pt-6">
                   <p className="font-medium text-burgundy">Option 2 — Wafacash or Cash Plus</p>
                   <p className="mt-2">
-                    Send the payment through your nearest agency using:
+                    You can also send the payment through your nearest Wafacash or
+                    Cash Plus agency using the following details:
                   </p>
                   <ul className="mt-3 space-y-1 text-burgundy">
-                    <li>Recipient: {payment.cash.recipient}</li>
-                    <li>Phone: {payment.cash.phone}</li>
-                    <li>
-                      Amount: {workshopInfo.price} MAD × {seats}
-                    </li>
+                    <li>Recipient’s full name: {payment.cash.recipient}</li>
+                    <li>Phone number: {payment.cash.phone}</li>
+                    <li>Amount: {total} MAD</li>
                   </ul>
                 </div>
 
                 <p className="border-t border-line pt-6 leading-relaxed">
                   Once the transfer is complete, please send your payment receipt
-                  through WhatsApp, along with your full name. Your seat will be
-                  confirmed after we verify the payment.
-                </p>
-                <p className="text-xs text-muted/80">
-                  Bank and cash details will be shared privately when you book —
-                  placeholders above will be replaced with live credentials.
+                  through WhatsApp to {contact.whatsapp}, along with your full
+                  name. Your seat will be confirmed after we verify that the
+                  payment has been received.
                 </p>
 
                 <button type="button" onClick={sendReceipt} className="btn-primary w-full">
-                  Send my payment receipt
+                  Send My Payment Receipt
                 </button>
               </div>
             </div>

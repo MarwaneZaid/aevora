@@ -75,7 +75,7 @@ export function Nav() {
 
           <div className="justify-self-end">
             <a href="#book" className="btn-primary !py-2.5 !text-[12px] md:!text-[13px]">
-              Book a workshop
+              Book Your Workshop Seat
             </a>
           </div>
         </div>

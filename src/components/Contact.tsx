@@ -14,22 +14,31 @@ export function Contact() {
           <p className="mt-5 max-w-2xl text-muted md:text-lg">
             Have a question about our journals or workshops? Interested in hosting
             an Aevora 97 workshop at your coffee shop, concept store, company or
-            private event? Reach out — we’d love to build something with you.
+            private event? Contact us to discuss a personalized creative
+            experience.
           </p>
         </Reveal>
 
         <div className="mt-14 grid gap-8 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
           <Reveal>
             <p className="eyebrow mb-2">WhatsApp</p>
-            <p className="text-burgundy">
-              {contact.whatsapp || 'Shared after booking'}
-            </p>
+            <a
+              href={`https://wa.me/${contact.whatsappE164}`}
+              target="_blank"
+              rel="noreferrer"
+              className="text-burgundy underline-offset-4 transition hover:underline"
+            >
+              {contact.whatsapp}
+            </a>
           </Reveal>
           <Reveal delay={0.05}>
             <p className="eyebrow mb-2">Email</p>
-            <p className="text-burgundy">
-              {contact.email || 'Via Instagram DM'}
-            </p>
+            <a
+              href={`mailto:${contact.email}`}
+              className="text-burgundy underline-offset-4 transition hover:underline"
+            >
+              {contact.email}
+            </a>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="eyebrow mb-2">Instagram</p>
@@ -50,7 +59,7 @@ export function Contact() {
               rel="noreferrer"
               className="text-burgundy underline-offset-4 transition hover:underline"
             >
-              @aevora97
+              {contact.handle}
             </a>
           </Reveal>
         </div>

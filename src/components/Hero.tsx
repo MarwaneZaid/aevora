@@ -78,7 +78,7 @@ export function Hero() {
           className="mt-9 flex flex-wrap gap-3"
         >
           <a href="#book" className="btn-primary">
-            Book your seat
+            Book Your Workshop Seat
             <ArrowDownRight size={16} />
           </a>
           <a href="#compose" className="btn-ghost">

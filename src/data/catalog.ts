@@ -108,22 +108,25 @@ export const workshopInfo = {
 }
 
 export const contact = {
-  whatsapp: '', // add real number later
-  email: '',
+  /** Display number */
+  whatsapp: '0618504207',
+  /** E.164 for wa.me links (Morocco) */
+  whatsappE164: '212618504207',
+  email: 'aevora97studio@gmail.com',
   instagram: 'https://www.instagram.com/aevora_97',
-  tiktok: 'https://www.tiktok.com/@aevora97',
+  tiktok: 'https://www.tiktok.com/@aevora_97',
   handle: '@aevora_97',
 }
 
 export const payment = {
   bank: {
-    holder: 'Shared on confirmation',
-    bank: 'Shared on confirmation',
-    rib: 'Shared on confirmation',
+    holder: 'NOUIMI MANAL',
+    bank: 'CIH',
+    rib: '230 810 7047794211005700 04',
   },
   cash: {
-    recipient: 'Shared on confirmation',
-    phone: 'Shared on confirmation',
+    recipient: 'Manal Nouimi',
+    phone: '0618504207',
   },
 }
 
