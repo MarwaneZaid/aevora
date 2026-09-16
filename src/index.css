@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #faf7ef;
+  --cream-warm: #f3ebe0;
+  --cream-deep: #e7ddd0;
+  --burgundy: #330a10;
+  --burgundy-soft: #4d151d;
+  --muted: #7a5a60;
+  --line: #e0d5c8;
+  --white: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--burgundy);
+  font-family: 'Figtree', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--burgundy) 18%, transparent);
+  color: var(--burgundy);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-[0.34em];
+    color: color-mix(in srgb, var(--burgundy) 55%, transparent);
+  }
+
+  .display {
+    @apply font-display font-medium tracking-[-0.03em] text-burgundy;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-burgundy px-5 py-3.5 text-sm font-medium text-cream transition duration-300 hover:bg-burgundy-soft;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border px-5 py-3.5 text-sm text-burgundy transition duration-300;
+    border-color: color-mix(in srgb, var(--burgundy) 20%, transparent);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--burgundy);
+    background: color-mix(in srgb, var(--burgundy) 4%, transparent);
+  }
+
+  .field {
+    @apply w-full border border-line bg-white px-3.5 py-3.5 text-burgundy outline-none transition focus:border-burgundy;
+  }
+
+  .field::placeholder {
+    color: color-mix(in srgb, var(--muted) 45%, transparent);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+}
