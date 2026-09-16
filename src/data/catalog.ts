@@ -13,6 +13,8 @@ export const images = {
   brownSun: '/images/journal-brown-sun.jpg',
   crocHeld: '/images/journal-croc-held.jpg',
   swatches: '/images/leather-swatches.jpg',
+  fezTannery: '/images/fez-tannery.jpg',
+  swatchesLogo: '/images/leather-swatches-logo.jpg',
 }
 
 export const galleryPics = [
