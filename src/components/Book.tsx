@@ -1,5 +1,7 @@
 import { FormEvent, useState } from 'react'
-import { contact, payment, workshopInfo } from '../data/catalog'
+import { contact, payment } from '../data/catalog'
+import { useWorkshop } from '../lib/content'
+import { isSupabaseConfigured, supabase } from '../lib/supabase'
 import { Reveal } from './Reveal'
 
 type Props = {
@@ -15,6 +17,7 @@ function openWhatsApp(message: string) {
 }
 
 export function Book({ composition }: Props) {
+  const { workshop } = useWorkshop()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -23,11 +26,28 @@ export function Book({ composition }: Props) {
   const [instagram, setInstagram] = useState('')
   const [requests, setRequests] = useState('')
   const [sent, setSent] = useState(false)
+  const [saving, setSaving] = useState(false)
 
-  const total = Number(workshopInfo.price) * Number(seats)
+  const total = Number(workshop.price) * Number(seats)
 
-  const onSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
+    setSaving(true)
+
+    if (isSupabaseConfigured) {
+      await supabase.from('customers').insert({
+        full_name: name,
+        email,
+        phone,
+        seats: Number(seats),
+        allergies: allergies || null,
+        instagram: instagram || null,
+        special_requests: requests || null,
+        journal_preview: composition || null,
+        payment_status: 'pending',
+      })
+    }
+
     const lines = [
       'Aevora 97 — Workshop booking',
       `Name: ${name}`,
@@ -38,12 +58,13 @@ export function Book({ composition }: Props) {
       instagram ? `Instagram: ${instagram}` : '',
       requests ? `Special requests: ${requests}` : '',
       composition ? `Journal preview: ${composition}` : '',
-      `Session: ${workshopInfo.date} · ${workshopInfo.price} MAD × ${seats} = ${total} MAD`,
+      `Session: ${workshop.date} · ${workshop.price} MAD × ${seats} = ${total} MAD`,
     ]
       .filter(Boolean)
       .join('\n')
 
     openWhatsApp(lines)
+    setSaving(false)
     setSent(true)
   }
 
@@ -51,7 +72,7 @@ export function Book({ composition }: Props) {
     const msg = [
       'Aevora 97 — Payment receipt',
       `Name: ${name || '[your name]'}`,
-      `Session: ${workshopInfo.date}`,
+      `Session: ${workshop.date}`,
       `Amount: ${total} MAD`,
       'I am sending my payment receipt.',
     ].join('\n')
@@ -75,12 +96,12 @@ export function Book({ composition }: Props) {
           <Reveal delay={0.08}>
             <div className="mt-8 border border-burgundy/10 bg-cream p-5 md:p-6">
               <p className="eyebrow mb-2">Session details</p>
-              <p className="font-display text-2xl text-burgundy">{workshopInfo.title}</p>
+              <p className="font-display text-2xl text-burgundy">{workshop.title}</p>
               <p className="mt-2 text-sm text-muted">
-                {workshopInfo.date} · {workshopInfo.place} · {workshopInfo.duration}
+                {workshop.date} · {workshop.place} · {workshop.duration}
               </p>
               <p className="mt-1 text-sm text-burgundy">
-                {workshopInfo.price} MAD / seat · {workshopInfo.seatsLeft} seats left
+                {workshop.price} MAD / seat · {workshop.seatsLeft} seats left
               </p>
               {composition && (
                 <p className="mt-4 border-t border-line pt-4 text-sm text-muted">
@@ -162,8 +183,8 @@ export function Book({ composition }: Props) {
                 </label>
               </div>
 
-              <button type="submit" className="btn-primary w-full sm:w-auto">
-                {sent ? 'Send booking again' : 'Continue to payment'}
+              <button type="submit" className="btn-primary w-full sm:w-auto" disabled={saving}>
+                {saving ? 'Saving…' : sent ? 'Send booking again' : 'Continue to payment'}
               </button>
             </form>
           </Reveal>

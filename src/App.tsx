@@ -1,40 +1,14 @@
-import { useState } from 'react'
-import { Loader } from './components/Loader'
-import { Nav } from './components/Nav'
-import { Hero } from './components/Hero'
-import { Marquee } from './components/Marquee'
-import { About } from './components/About'
-import { Story } from './components/Story'
-import { Create } from './components/Create'
-import { Values } from './components/Values'
-import { Workshops } from './components/Workshops'
-import { Compose } from './components/Compose'
-import { Book } from './components/Book'
-import { Faq } from './components/Faq'
-import { Contact } from './components/Contact'
-import { Footer } from './components/Footer'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HomePage } from './pages/HomePage'
+import { AdminPage } from './pages/AdminPage'
 
 export default function App() {
-  const [composition, setComposition] = useState('')
-
   return (
-    <div className="min-h-screen bg-cream text-burgundy">
-      <Loader />
-      <Nav />
-      <main>
-        <Hero />
-        <Marquee />
-        <About />
-        <Story />
-        <Create />
-        <Values />
-        <Workshops />
-        <Compose onCompose={setComposition} />
-        <Book composition={composition} />
-        <Faq />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/admin" element={<AdminPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
