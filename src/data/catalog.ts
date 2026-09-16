@@ -117,13 +117,13 @@ export const contact = {
 
 export const payment = {
   bank: {
-    holder: '[Full name]',
-    bank: '[Bank name]',
-    rib: '[RIB number]',
+    holder: 'Shared on confirmation',
+    bank: 'Shared on confirmation',
+    rib: 'Shared on confirmation',
   },
   cash: {
-    recipient: '[Full name]',
-    phone: '[Phone number]',
+    recipient: 'Shared on confirmation',
+    phone: 'Shared on confirmation',
   },
 }
 

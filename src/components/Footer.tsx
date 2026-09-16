@@ -9,32 +9,37 @@ export function Footer() {
             <p className="font-display text-5xl tracking-[0.14em] md:text-7xl">
               AEVORA 97
             </p>
-            <p className="mt-3 text-cream/65">Built to last.</p>
+            <p className="mt-3 font-display text-xl italic text-cream/70">
+              Built to last.
+            </p>
           </div>
-          <div className="flex flex-wrap gap-6 text-sm text-cream/75">
-            <a href="#about" className="hover:text-cream">
+          <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-cream/75">
+            <a href="#about" className="transition hover:text-cream">
               About
             </a>
-            <a href="#work" className="hover:text-cream">
+            <a href="#work" className="transition hover:text-cream">
               Work
             </a>
-            <a href="#workshop" className="hover:text-cream">
+            <a href="#workshop" className="transition hover:text-cream">
               Workshop
             </a>
-            <a href="#book" className="hover:text-cream">
+            <a href="#compose" className="transition hover:text-cream">
+              Compose
+            </a>
+            <a href="#book" className="transition hover:text-cream">
               Book
             </a>
-            <a href="#faq" className="hover:text-cream">
+            <a href="#faq" className="transition hover:text-cream">
               FAQ
             </a>
-            <a href="#contact" className="hover:text-cream">
+            <a href="#contact" className="transition hover:text-cream">
               Contact
             </a>
             <a
               href={contact.instagram}
               target="_blank"
               rel="noreferrer"
-              className="hover:text-cream"
+              className="transition hover:text-cream"
             >
               Instagram
             </a>
@@ -42,7 +47,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col gap-2 pt-6 text-xs text-cream/45 sm:flex-row sm:justify-between">
           <p>© {new Date().getFullYear()} Aevora 97</p>
-          <p>Handmade in Morocco</p>
+          <p>Handmade in Morocco · Leather from Fez</p>
         </div>
       </div>
     </footer>

@@ -49,25 +49,47 @@ img {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-burgundy px-5 py-3.5 text-sm font-medium text-cream transition duration-300 hover:bg-burgundy-soft;
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden bg-burgundy px-6 py-3.5 text-sm font-medium text-cream transition duration-300;
+  }
+
+  .btn-primary:hover {
+    background: var(--burgundy-soft);
+    transform: translateY(-1px);
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 border px-5 py-3.5 text-sm text-burgundy transition duration-300;
+    @apply inline-flex items-center justify-center gap-2 border px-6 py-3.5 text-sm text-burgundy transition duration-300;
     border-color: color-mix(in srgb, var(--burgundy) 20%, transparent);
   }
 
   .btn-ghost:hover {
     border-color: var(--burgundy);
     background: color-mix(in srgb, var(--burgundy) 4%, transparent);
+    transform: translateY(-1px);
   }
 
   .field {
-    @apply w-full border border-line bg-white px-3.5 py-3.5 text-burgundy outline-none transition focus:border-burgundy;
+    @apply w-full border border-line bg-white/90 px-3.5 py-3.5 text-burgundy outline-none transition focus:border-burgundy focus:bg-white;
   }
 
   .field::placeholder {
     color: color-mix(in srgb, var(--muted) 45%, transparent);
+  }
+
+  .img-frame {
+    @apply overflow-hidden;
+  }
+
+  .img-frame img {
+    @apply h-full w-full object-cover transition duration-700 ease-out;
+  }
+
+  .img-frame:hover img {
+    transform: scale(1.05);
+  }
+
+  .section-rule {
+    @apply mx-auto h-px w-16 bg-burgundy/20;
   }
 }
 

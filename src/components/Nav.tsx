@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react'
 const leftLinks = [
   { href: '#about', label: 'About' },
   { href: '#work', label: 'Work' },
+  { href: '#workshop', label: 'Workshop' },
   { href: '#contact', label: 'Contact' },
 ]
 

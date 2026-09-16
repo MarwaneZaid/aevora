@@ -55,7 +55,7 @@ export function Book({ composition }: Props) {
       <div className="mx-auto grid max-w-[1400px] gap-12 px-5 md:grid-cols-12 md:gap-10 md:px-8 lg:px-10">
         <div className="md:col-span-7">
           <Reveal>
-            <p className="eyebrow mb-4">Page 4</p>
+            <p className="eyebrow mb-4">Reserve</p>
             <h2 className="display text-4xl md:text-5xl">Book your workshop seat</h2>
             <p className="mt-4 max-w-xl text-muted">
               Complete the form below to reserve your place. Your booking is
@@ -65,8 +65,8 @@ export function Book({ composition }: Props) {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <div className="mt-8 border border-line bg-cream p-5 md:p-6">
-              <p className="eyebrow mb-2">Infos about the actual workshop</p>
+            <div className="mt-8 border border-burgundy/10 bg-cream p-5 md:p-6">
+              <p className="eyebrow mb-2">Session details</p>
               <p className="font-display text-2xl text-burgundy">{workshopInfo.title}</p>
               <p className="mt-2 text-sm text-muted">
                 {workshopInfo.date} · {workshopInfo.place} · {workshopInfo.duration}
@@ -163,14 +163,14 @@ export function Book({ composition }: Props) {
 
         <div className="md:col-span-5">
           <Reveal>
-            <div className="border border-line bg-cream p-6 md:sticky md:top-28">
-              <p className="eyebrow mb-3">Payment methods</p>
+            <div className="border border-burgundy/10 bg-cream p-6 shadow-lift md:sticky md:top-28">
+              <p className="eyebrow mb-3">Payment</p>
               <h3 className="display text-3xl">How to pay</h3>
 
               <div className="mt-6 space-y-6 text-sm text-muted">
                 <div>
                   <p className="font-medium text-burgundy">Option 1 — Bank transfer</p>
-                  <p className="mt-2">Transfer the total amount using the following bank details:</p>
+                  <p className="mt-2">Transfer the total amount using the bank details below.</p>
                   <ul className="mt-3 space-y-1 text-burgundy">
                     <li>Account holder: {payment.bank.holder}</li>
                     <li>Bank: {payment.bank.bank}</li>
@@ -195,10 +195,14 @@ export function Book({ composition }: Props) {
                   </ul>
                 </div>
 
-                <p className="border-t border-line pt-6">
+                <p className="border-t border-line pt-6 leading-relaxed">
                   Once the transfer is complete, please send your payment receipt
                   through WhatsApp, along with your full name. Your seat will be
                   confirmed after we verify the payment.
+                </p>
+                <p className="text-xs text-muted/80">
+                  Bank and cash details will be shared privately when you book —
+                  placeholders above will be replaced with live credentials.
                 </p>
 
                 <button type="button" onClick={sendReceipt} className="btn-primary w-full">

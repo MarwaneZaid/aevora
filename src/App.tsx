@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Loader } from './components/Loader'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
+import { Marquee } from './components/Marquee'
 import { About } from './components/About'
 import { Story } from './components/Story'
 import { Create } from './components/Create'
@@ -22,6 +23,7 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
+        <Marquee />
         <About />
         <Story />
         <Create />

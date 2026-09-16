@@ -29,16 +29,18 @@ export function Workshops() {
             </p>
           </Reveal>
           <Reveal delay={0.1}>
-            <img
-              src={images.workshopTable}
-              alt="Aevora leather journal workshop table setup"
-              className="aspect-[4/5] w-full object-cover shadow-soft"
-            />
+            <div className="img-frame shadow-soft">
+              <img
+                src={images.workshopTable}
+                alt="Aevora leather journal workshop table setup"
+                className="aspect-[4/5] w-full object-cover"
+              />
+            </div>
           </Reveal>
         </div>
 
         <Reveal>
-          <div className="mt-16 border border-line bg-cream-warm/60 p-6 md:p-10">
+          <div className="mt-16 border border-burgundy/15 bg-gradient-to-br from-cream-warm to-cream p-6 md:p-10">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="eyebrow mb-3">Next session</p>
@@ -70,7 +72,7 @@ export function Workshops() {
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {included.map((item, i) => (
               <Reveal key={item} delay={i * 0.03}>
-                <li className="flex gap-3 border-b border-line py-3 text-burgundy">
+                <li className="flex gap-3 border-b border-line py-3 text-burgundy transition hover:pl-1">
                   <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-burgundy" />
                   {item}
                 </li>
@@ -80,8 +82,8 @@ export function Workshops() {
         </div>
 
         <Reveal>
-          <div className="mt-16 text-center">
-            <p className="font-display text-3xl italic text-burgundy md:text-5xl">
+          <div className="mt-20 text-center">
+            <p className="font-display text-3xl italic leading-tight text-burgundy md:text-5xl">
               Your ideas. Your memories. Your journal.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
